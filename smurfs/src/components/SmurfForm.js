@@ -46,7 +46,7 @@ class SmurfForm extends Component {
           onChange={this.handleInputChange}
         />
         <button onClick={() => this.handleAddSmurf()} type="button">
-          Add New Friend
+          Add New Smurf
         </button>
       </form>
     );
