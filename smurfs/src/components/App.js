@@ -13,6 +13,7 @@ import { connect } from "react-redux";
 class App extends Component {
   componentDidMount() {
     this.props.getSmurfs();
+    console.log(this.props.smurfs);
   }
 
   render() {
