@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import SmurfForm from "./SmurfForm";
+import Smurfs from "./Smurfs";
 /*
  to wire this component up you're going to need a few things.
  I'll let you do this part on your own. 
@@ -14,9 +16,31 @@ class App extends Component {
         <div>Welcome to your Redux version of Smurfs!</div>
         <div>Start inside of your `src/index.js` file!</div>
         <div>Have fun!</div>
+        <div className="no-smurfs-error">
+          {this.props.error ? (
+            <h2>The Smurfs could not be found! We MUST save them!!</h2>
+          ) : null}
+        </div>
+        <SmurfForm />
+        {this.props.gettingSmurfs ? (
+          <h2>Kidnap-- I mean, looking for the smurfs...</h2>
+        ) : (
+          <Smurfs smurfs={this.props.smurfs} />
+        )}
       </div>
     );
   }
 }
 
-export default App;
+const mstp = state => {
+  return {
+    smurfs: state.smurfs,
+    error: state.error,
+    gettingSmurfs: state.gettingSmurfs
+  };
+};
+
+export default connect(
+  mstp,
+  { getSmurfs }
+)(App);

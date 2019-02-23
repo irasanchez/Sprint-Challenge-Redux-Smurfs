@@ -46,10 +46,10 @@ export const getSmurfs = () => {
 export const createSmurf = smurf => {
   const newSmurf = axios.post(`${URL}/create`, smurf);
   return dispatch => {
-    dispatch({ type: CREATING_FRIEND });
+    dispatch({ type: CREATING_SMURF });
     newSmurf
       .then(({ data }) => {
-        dispatch({ type: CREATE_FRIEND, payload: data });
+        dispatch({ type: CREATE_SMURF, payload: data });
       })
       .catch(err => {
         dispatch({ type: ERROR, payload: err });
