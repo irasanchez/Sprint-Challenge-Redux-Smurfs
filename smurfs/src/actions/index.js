@@ -30,7 +30,7 @@ export const TOGGLE_UPDATE_SMURF = "TOGGLE_UPDATE_SMURF";
 const URL = "http://localhost:3333/smurfs";
 
 export const getSmurfs = () => {
-  const smurfs = axios.get(`${URL}/get`);
+  const smurfs = axios.get(`${URL}`);
   return dispatch => {
     dispatch({ type: GETTING_SMURFS });
     smurfs
@@ -44,7 +44,7 @@ export const getSmurfs = () => {
 };
 
 export const createSmurf = smurf => {
-  const newSmurf = axios.post(`${URL}/create`, smurf);
+  const newSmurf = axios.post(`${URL}`, smurf);
   return dispatch => {
     dispatch({ type: CREATING_SMURF });
     newSmurf

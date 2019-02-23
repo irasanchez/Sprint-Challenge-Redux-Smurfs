@@ -7,7 +7,13 @@ class Smurfs extends Component {
       <div className="smurf-container">
         <ul>
           {this.props.smurfs.map(smurf => {
-            return <li key={smurf.name}>{smurf.name}</li>;
+            return (
+              <li key={smurf.name}>
+                <div>{smurf.name}</div>
+                <div>{smurf.age}</div>
+                <div>{smurf.height}</div>
+              </li>
+            );
           })}
         </ul>
       </div>

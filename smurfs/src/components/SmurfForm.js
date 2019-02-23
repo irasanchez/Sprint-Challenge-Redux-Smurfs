@@ -9,13 +9,13 @@ class SmurfForm extends Component {
     height: ""
   };
 
-  handleInputCHange = event => {
+  handleInputChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
   handleAddSmurf = _ => {
     const { name, age, height } = this.state;
-    this.props.createFriend({ name, age, height });
+    this.props.createSmurf({ name, age, height });
     this.setState({ name: "", age: "", height: "" });
   };
 
